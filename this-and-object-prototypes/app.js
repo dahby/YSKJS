@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 
 // function identify() {
 //   return this.name.toUpperCase();
@@ -124,15 +124,47 @@
 // o.foo();
 // (p.foo = o.foo)();
 
-function foo() {
-  console.log("name: " + this.name);
-}
-var obj = {name: "obj"};
-var obj2 = {name: "obj2"};
-var obj3 = {name: "obj3"};
-var fooOBJ = foo.softBind(obj);
-fooOBJ();
-obj2.foo = foo.softBind(obj);
-obj2.foo();
-fooOBJ.call(obj3);
-setTimeout(obj2.foo, 10);
+// function foo() {
+//   console.log("name: " + this.name);
+// }
+// var obj = {name: "obj"};
+// var obj2 = {name: "obj2"};
+// var obj3 = {name: "obj3"};
+// var fooOBJ = foo.softBind(obj);
+// fooOBJ();
+// obj2.foo = foo.softBind(obj);
+// obj2.foo();
+// fooOBJ.call(obj3);
+// setTimeout(obj2.foo, 10);
+
+// var myObject = {};
+// myObject[true] = 'foo';
+// myObject[3] = 'bar';
+// myObject[myObject] = 'baz';
+// console.log (myObject['true']);
+// myObject['3'];
+// myObject['[object Object]'];
+
+// function foo() {
+//   console.log('foo');
+// }
+// var someFoo = foo;
+// var myObject = {
+//   someFoo: foo
+// };
+// foo();
+// someFoo;
+// myObject.someFoo;
+
+// var myArray = ['foo', 42, 'bar'];
+// myArray['3'] = 'baz';
+
+var myObject = {};
+Object.definteProperty(myObject, 'a', {enumberable: true, value: 2 });
+Object.defineProperty(
+  myObject,
+  'b',
+  { enumerable: false, value: 3 }
+);
+myObject.b;
+console.log('b' in myObject);
